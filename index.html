@@ -10,24 +10,30 @@
 </head>
 
 <body ng-app="myApp">
-    <div ng-controller="myController as vm">
+    <div ng-controller="myController as vm" class="app">
         <nav class="nav">
             <h2>ngMadLibs</h2>
             <p>Automate this!</p>
         </nav>
         <section class="form">
+        <form name="form" ng-hide="form.$submitted">
             <h2>Provide the following words:</h2>
-            <input type="text" ng-model="vm.name" placeholder="name" />
-            <input type="text" ng-model="vm.jobtitle" placeholder="job title" />
-            <input type="text" ng-model="vm.tedioustask" placeholder="tedious task" />
-            <input type="text" ng-model="vm.dirtytask" placeholder="dirty task" />
-            <input type="text" ng-model="vm.celebrity" placeholder="celebrity" />
-            <input type="text" ng-model="vm.uselessskill" placeholder="useless skill" />
-            <input type="text" ng-model="vm.adjective" placeholder="adjective" />
-            <input type="text" ng-model="vm.obnoxiuouscelbertity" placeholder="obnoxiuous celbertity" />
-            <input type="number" ng-model="vm.number" placeholder="number" />
+            <input type="text" ng-model="vm.name" placeholder="name" required/>
+            <input type="text" ng-model="vm.jobtitle" placeholder="job title" required/>
+            <input type="text" ng-model="vm.tedioustask" placeholder="tedious task" required/>
+            <input type="text" ng-model="vm.dirtytask" placeholder="dirty task" required/>
+            <input type="text" ng-model="vm.celebrity" placeholder="celebrity" required/>
+            <input type="text" ng-model="vm.uselessskill" placeholder="useless skill" required/>
+            <input type="text" ng-model="vm.adjective" placeholder="adjective" required/>
+            <input type="text" ng-model="vm.obnoxiuouscelbertity" placeholder="obnoxiuous celbertity" required/>
+            <input type="number" ng-model="vm.number" placeholder="number" required />
+            <br>
+            <button class="submit">Generate My Mad Lib</button>
+            </form>
         </section>
-        <section>
+        <br>
+        <br>
+        <section class="text-block" ng-show="form.$submitted">
             <p><span ng-hide="vm.name">____</span>{{ vm.name }} was a <span ng-hide="vm.jobtitle">____</span>{{ vm.jobtitle }} who loved technology. Although she loved parts of her job, she absolutely hated <span ng-hide="vm.tedioustask">____</span>{{vm.tedioustask}} and <span ng-hide="vm.dirtytask">____</span>{{vm.dirtytask}}. So, <span ng-hide="vm.name">____</span>{{vm.name}} met with her life mentor <span ng-hide="vm.celebrity">____</span>{{vm.celebrity}} who told her to learn how to <span ng-hide="vm.uselessskill">____</span>{{vm.uselessskill}} with Thinkful. Thinkful didn't offer a course on <span ng-hide="vm.uselessskill">____</span>{{vm.uselessskill}} so she studied programming instead. What a great decision! With her new skills, <span ng-hide="vm.name">____</span>{{vm.name}} built a(n) <span ng-hide="vm.adjective">____</span>{{vm.adjective}} robot named <span ng-hide="vm.obnoxiuouscelbertity">____</span>{{vm.obnoxiuouscelbertity}} that not only loved <span ng-hide="vm.dirtytask">____</span>{{vm.dirtytask}} but did it <span ng-hide="vm.number">____</span>{{vm.number}} times faster.
             </p>
         </section>
